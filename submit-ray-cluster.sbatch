@@ -11,7 +11,6 @@
 ### Give all resources to a single Ray task, ray can manage the resources internally
 #SBATCH --cpus-per-task=3
 # #SBATCH --ntasks-per-node=1
-# #SBATCH --gpus-per-task=1
 
 # Load modules or your own conda environment here
 
