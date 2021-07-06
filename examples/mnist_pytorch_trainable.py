@@ -13,9 +13,9 @@ from ray.tune.schedulers import ASHAScheduler
 from ray.tune.examples.mnist_pytorch import (train, test, get_data_loaders,
                                              ConvNet)
 
-# Change these values if you want the training to run quicker or slower.
-EPOCH_SIZE = 512
-TEST_SIZE = 256
+# # Change these values if you want the training to run quicker or slower.
+# EPOCH_SIZE = 64
+# TEST_SIZE = 10
 
 # Training settings
 parser = argparse.ArgumentParser(description="PyTorch MNIST Example")
@@ -67,8 +67,8 @@ if __name__ == "__main__":
   analysis = tune.run(TrainMNIST,
                       scheduler=sched,
                       stop={"mean_accuracy": 0.99,
-                            "training_iteration": 100},
-                      resources_per_trial={"cpu":10, "gpu": 1},
+                            "training_iteration": 10},
+                      resources_per_trial={"cpu":3, "gpu": 1},
                       num_samples=128,
                       checkpoint_at_end=True,
                       config={"lr": tune.uniform(0.001, 1.0),
